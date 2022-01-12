@@ -1,6 +1,8 @@
-import * as React from "react"
+// import * as React from "react"
 import Text from "../components/text"
+import Success_message from "../components/success_message"
 import { StaticImage } from "gatsby-plugin-image"
+import React, { useState } from 'react';
 /*
   This example requires Tailwind CSS v2.0+ 
   
@@ -35,6 +37,13 @@ const offices = [
 ]
 
 export default function Example() {
+  const [success, setSuccess] = useState(false);
+
+  const success_message = (event) => {
+    event.preventDefault();
+    setSuccess(true);
+  }
+
   return (
     <div className="bg-white">
       <div className="bg-stone-50">
@@ -311,12 +320,13 @@ export default function Example() {
                     </div>
                     <div className="sm:col-span-2 sm:flex sm:justify-end">
                       <button
-                        type="submit"
+                        onClick={success_message}
                         className="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium font-sans text-white bg-teal-500 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 sm:w-auto"
                       >
                         Submit
                       </button>
                     </div>
+                    {success ? (<Success_message message="Your message has been received and we will be in touch shortly." />) : ""}
                   </form>
                 </div>
               </div>
