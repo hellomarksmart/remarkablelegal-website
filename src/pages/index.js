@@ -29,12 +29,6 @@ import React, { useState } from 'react';
   }
   ```
 */
-const offices = [
-  { id: 1, city: 'Los Angeles', address: ['4556 Brendan Ferry', 'Los Angeles, CA 90210'] },
-  { id: 2, city: 'New York', address: ['886 Walter Streets', 'New York, NY 12345'] },
-  { id: 3, city: 'Toronto', address: ['7363 Cynthia Pass', 'Toronto, ON N3Y 4H8'] },
-  { id: 4, city: 'London', address: ['114 Cobble Lane', 'London N1 2EF'] },
-]
 
 export default function Example() {
   const [success, setSuccess] = useState(false);
@@ -233,7 +227,7 @@ export default function Example() {
                           name="first-name"
                           id="first-name"
                           autoComplete="given-name"
-                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
                         />
                       </div>
                     </div>
@@ -247,7 +241,7 @@ export default function Example() {
                           name="last-name"
                           id="last-name"
                           autoComplete="family-name"
-                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
                         />
                       </div>
                     </div>
@@ -261,7 +255,7 @@ export default function Example() {
                           name="email"
                           type="email"
                           autoComplete="email"
-                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
                         />
                       </div>
                     </div>
@@ -280,7 +274,7 @@ export default function Example() {
                           name="phone"
                           id="phone"
                           autoComplete="tel"
-                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
                           aria-describedby="phone-optional"
                         />
                       </div>
@@ -294,7 +288,7 @@ export default function Example() {
                           type="text"
                           name="subject"
                           id="subject"
-                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
                         />
                       </div>
                     </div>
@@ -312,7 +306,7 @@ export default function Example() {
                           id="message"
                           name="message"
                           rows={4}
-                          className="py-3 px-4 block w-full shadow text-warm-gray-900 border-2 focus:ring-teal-500 focus:border-teal-500 border border-warm-gray-300 rounded-md"
+                          className="py-3 px-4 block w-full shadow text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border border-warm-gray-300 rounded-md"
                           aria-describedby="message-max"
                           defaultValue={''}
                         />
@@ -333,8 +327,6 @@ export default function Example() {
             </div>
           </div>
         </section>
-
-
       </main>
     </div>
   )
