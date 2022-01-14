@@ -91,10 +91,6 @@ export default function Example() {
           </div>
           <div className="max-w-7xl pb-3 mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative bg-white shadow-xl">
-              <h2 id="contact-heading" className="sr-only">
-                Contact us
-              </h2>
-
               <div className="grid grid-cols-1 lg:grid-cols-3">
                 <div className="relative overflow-hidden py-10 px-6 bg-gradient-to-b from-teal-500 to-teal-600 sm:px-10 xl:px-12 xl:py-6">
                   <div
@@ -143,7 +139,7 @@ export default function Example() {
                 </div>
                 <div className="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12 shadow-md">
                   <h3 className="text-lg font-medium text-warm-gray-900">Send us a message</h3>
-                  <form action="#" method="POST" className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+                  <form action="#" onSubmit={success_message} method="POST" className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
                     <div>
                       <label htmlFor="first-name" className="block text-sm font-medium font-sans text-warm-gray-900">
                         First name
@@ -155,6 +151,7 @@ export default function Example() {
                           id="first-name"
                           autoComplete="given-name"
                           className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                          required
                         />
                       </div>
                     </div>
@@ -169,6 +166,7 @@ export default function Example() {
                           id="last-name"
                           autoComplete="family-name"
                           className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                          required
                         />
                       </div>
                     </div>
@@ -183,6 +181,7 @@ export default function Example() {
                           type="email"
                           autoComplete="email"
                           className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                          required
                         />
                       </div>
                     </div>
@@ -216,6 +215,7 @@ export default function Example() {
                           name="subject"
                           id="subject"
                           className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                          required
                         />
                       </div>
                     </div>
@@ -236,12 +236,13 @@ export default function Example() {
                           className="py-3 px-4 block w-full shadow text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border border-warm-gray-300 rounded-md"
                           aria-describedby="message-max"
                           defaultValue={''}
+                          required
                         />
                       </div>
                     </div>
                     <div className="sm:col-span-2 sm:flex sm:justify-end">
                       <button
-                        onClick={success_message}
+                        type="submit"
                         className="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium font-sans text-white bg-teal-500 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 sm:w-auto"
                       >
                         Submit
