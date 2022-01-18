@@ -13,7 +13,7 @@ const Header = () => (
           <Link to="/">
             <StaticImage
               src="../images/Remarkable.png"
-              width={180}
+              width={250}
               quality={95}
               formats={["auto", "webp", "avif"]}
               alt="Remarkable logo"
