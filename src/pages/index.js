@@ -265,6 +265,7 @@ const Homepage = () => {
                           className="py-3 px-4 block w-full shadow text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border border-warm-gray-300 rounded-md"
                           aria-describedby="message-max"
                           defaultValue={""}
+                          maxlength="500"
                           required
                         />
                       </div>
@@ -279,10 +280,10 @@ const Homepage = () => {
                     </div>
                     {success
                       ? headings.map(item => (
-                          <p className="text-sm w-full font-bold tracking-tight text-zinc-400 font-sans sm:text-sm">
-                            {item.success_message}
-                          </p>
-                        ))
+                        <p className="text-sm w-full font-bold tracking-tight text-zinc-400 font-sans sm:text-sm">
+                          {item.success_message}
+                        </p>
+                      ))
                       : ""}
                   </form>
                 </div>
