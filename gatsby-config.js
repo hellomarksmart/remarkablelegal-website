@@ -1,23 +1,23 @@
-
 module.exports = {
   siteMetadata: {
     title: `Remarkable.legal`,
     description: `Remarkable.legal`,
     author: `@gatsbyjs`,
-    siteUrl: `https://remarkable.legal/`,
+    // siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    siteUrl: `https://remarkablelegalwebsitestaging.gatsbyjs.io/`,
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-sitemap',
+      resolve: "gatsby-plugin-sitemap",
       options: {
-        output: '/'
-      }
+        output: "/",
+      },
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
-        policy: [{ userAgent: 'ia_archiver', disallow: '/' }]
-      }
+        policy: [{ userAgent: "ia_archiver", disallow: "/" }],
+      },
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
