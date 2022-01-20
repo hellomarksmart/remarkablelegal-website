@@ -1,11 +1,25 @@
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    // siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    siteUrl: `https://remarkablelegalwebsitestaging.gatsbyjs.io/`,
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        output: '/'
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: 'ia_archiver', disallow: '/' }]
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-plugin-postcss`,
@@ -29,7 +43,7 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.jpg`, // This path is relative to the root of the site.
+        icon: `src/images/favicon (1).png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
