@@ -1,11 +1,10 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Remarkable.legal`,
+    description: `Remarkable.legal`,
     author: `@gatsbyjs`,
-    // siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
-    siteUrl: `https://remarkablelegalwebsitestaging.gatsbyjs.io/`,
+    siteUrl: `https://remarkable.legal/`,
   },
   plugins: [
     {
