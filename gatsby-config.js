@@ -3,8 +3,7 @@ module.exports = {
     title: `Remarkable.legal`,
     description: `Remarkable.legal`,
     author: `@gatsbyjs`,
-    // siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
-    siteUrl: `https://remarkablelegalwebsitestaging.gatsbyjs.io/`,
+    siteUrl: `https://remarkable.legal/`,
   },
   plugins: [
     {
