@@ -5,10 +5,53 @@ import Seo from "../components/seo"
 const Homepage = () => {
   const [success, setSuccess] = useState(false)
 
-  const success_message = event => {
-    event.preventDefault()
-    setSuccess(true)
+  const [mailerState, setMailerState] = useState({
+    FName: "",
+    LName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  })
+
+  function handleStateChange(e) {
+    setMailerState(prevState => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))
   }
+
+  const submitEmail = async (e) => {
+    e.preventDefault();
+    console.log({ mailerState });
+    const response = await fetch("http://localhost:3001/send", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ mailerState }),
+    })
+      .then((res) => res.json())
+      .then(async (res) => {
+        const resData = await res;
+        console.log(resData);
+        if (resData.status === "success") {
+          setSuccess(true)
+        } else if (resData.status === "fail") {
+          alert("Message failed to send");
+        }
+      })
+      .then(() => {
+        setMailerState({
+          FName: "",
+          LName: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      });
+  };
 
   const headings = [
     {
@@ -45,7 +88,7 @@ const Homepage = () => {
         </div>
 
         <section
-          className="relative bg-stone-50 py-3"
+          className="relative bg-stone-50 py-1"
           aria-labelledby="contact-heading"
         >
           <div
@@ -135,14 +178,13 @@ const Homepage = () => {
                     </>
                   ))}
                 </div>
+
                 <div className="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12 shadow-md">
-                  <h3 className="text-lg font-medium text-warm-gray-900">
+                  <h3 className="text-lg text-warm-gray-900 font-medium">
                     Send us a message
                   </h3>
                   <form
-                    action="#"
-                    onSubmit={success_message}
-                    method="POST"
+                    onSubmit={submitEmail}
                     className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
                   >
                     <div>
@@ -155,8 +197,9 @@ const Homepage = () => {
                       <div className="mt-1">
                         <input
                           type="text"
-                          name="first-name"
-                          id="first-name"
+                          onChange={handleStateChange}
+                          name="FName"
+                          value={mailerState.FName}
                           autoComplete="given-name"
                           className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
                           required
@@ -173,8 +216,9 @@ const Homepage = () => {
                       <div className="mt-1">
                         <input
                           type="text"
-                          name="last-name"
-                          id="last-name"
+                          onChange={handleStateChange}
+                          name="LName"
+                          value={mailerState.LName}
                           autoComplete="family-name"
                           className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
                           required
@@ -190,8 +234,9 @@ const Homepage = () => {
                       </label>
                       <div className="mt-1">
                         <input
-                          id="email"
+                          onChange={handleStateChange}
                           name="email"
+                          value={mailerState.email}
                           type="email"
                           autoComplete="email"
                           className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
@@ -216,12 +261,14 @@ const Homepage = () => {
                       </div>
                       <div className="mt-1">
                         <input
-                          type="text"
+                          onChange={handleStateChange}
                           name="phone"
-                          id="phone"
-                          autoComplete="tel"
+                          value={mailerState.phone}
+                          type="tel"
+                          pattern="\d*"
+                          autoComplete="phone"
                           className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
-                          aria-describedby="phone-optional"
+                          required
                         />
                       </div>
                     </div>
@@ -235,8 +282,9 @@ const Homepage = () => {
                       <div className="mt-1">
                         <input
                           type="text"
+                          onChange={handleStateChange}
                           name="subject"
-                          id="subject"
+                          value={mailerState.subject}
                           className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
                           required
                         />
@@ -259,8 +307,9 @@ const Homepage = () => {
                       </div>
                       <div className="mt-1">
                         <textarea
-                          id="message"
+                          onChange={handleStateChange}
                           name="message"
+                          value={mailerState.message}
                           rows={4}
                           className="py-3 px-4 block w-full shadow text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border border-warm-gray-300 rounded-md"
                           aria-describedby="message-max"
@@ -273,6 +322,7 @@ const Homepage = () => {
                     <div className="sm:col-span-2 sm:flex sm:justify-end">
                       <button
                         type="submit"
+                        value="Send"
                         className="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium font-sans text-white bg-lime-500 hover:bg-lime-600 focus:outline-none sm:w-auto"
                       >
                         Submit
@@ -295,5 +345,4 @@ const Homepage = () => {
     </Layout>
   )
 }
-
 export default Homepage
