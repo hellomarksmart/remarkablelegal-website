@@ -21,16 +21,17 @@ const Homepage = () => {
     }))
   }
 
-  const submitEmail = async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     console.log({ mailerState });
-    const response = await fetch("http://localhost:3001/send", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({ mailerState }),
-    })
+    const response = await window
+      .fetch(`/api/form`, {
+        method: `POST`,
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ mailerState }),
+      })
       .then((res) => res.json())
       .then(async (res) => {
         const resData = await res;
@@ -184,7 +185,9 @@ const Homepage = () => {
                     Send us a message
                   </h3>
                   <form
-                    onSubmit={submitEmail}
+                    onSubmit={onSubmit}
+                    method="POST"
+                    action="/api/form"
                     className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
                   >
                     <div>
@@ -265,7 +268,6 @@ const Homepage = () => {
                           name="phone"
                           value={mailerState.phone}
                           type="tel"
-                          pattern="\d*"
                           autoComplete="phone"
                           className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 font-sans border-2 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
                           required
