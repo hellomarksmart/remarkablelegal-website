@@ -1,4 +1,3 @@
-
 module.exports = {
   siteMetadata: {
     title: `Remarkable.legal`,
@@ -8,16 +7,16 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-sitemap',
+      resolve: "gatsby-plugin-sitemap",
       options: {
-        output: '/'
-      }
+        output: "/",
+      },
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
-        policy: [{ userAgent: 'ia_archiver', disallow: '/' }]
-      }
+        policy: [{ userAgent: "ia_archiver", disallow: "/" }],
+      },
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
